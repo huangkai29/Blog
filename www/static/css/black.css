@@ -449,10 +449,6 @@
     color: #999
 }
 
-#crayon-change-code-text {
-    width: 400px;
-    height: 300px
-}
 
 .crayon-syntax {
     overflow: hidden!important;
@@ -483,9 +479,7 @@
 .crayon-syntax .crayon-toolbar,
 .crayon-syntax .crayon-info,
 .crayon-syntax .crayon-plain,
-.crayon-syntax .crayon-code {
-    width: 100%
-}
+
 
 .crayon-syntax .crayon-main,
 .crayon-syntax .crayon-plain {
@@ -928,9 +922,7 @@
     border-style: solid
 }
 
-.crayon-te #crayon-code {
-    font-family: monospace!important
-}
+
 
 #crayon-te-content,
 #crayon-te-table {
@@ -1040,12 +1032,9 @@
     padding: 0
 }
 
-#crayon-code {
-    height: 200px;
-    white-space: pre
-}
 
-#crayon-code,
+
+
 #crayon-url {
     width: 555px!important
 }
@@ -1215,10 +1204,7 @@ a.mce_crayon_tinymce {
     margin-bottom: 5px
 }
 
-.crayon-font-courier-new {
-    font-family: "Source Code Pro", Inconsolata, Consolas, "Droid Sans Mono", "Courier New", monospace;
-    font-weight: 400
-}
+
 
 html,
 body,
@@ -1234,7 +1220,7 @@ h4,
 h5,
 h6,
 p,
-blockquote,
+
 pre,
 a,
 abbr,
@@ -1242,7 +1228,7 @@ acronym,
 address,
 big,
 cite,
-code,
+
 del,
 dfn,
 em,
@@ -1339,17 +1325,6 @@ th {
     text-align: left
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: ""
-}
-
-blockquote,
-q {
-    quotes: "" ""
-}
 
 a:focus {
     outline: thin dotted
@@ -1443,9 +1418,6 @@ i {
     font-style: italic
 }
 
-blockquote {
-    margin: 0 24px
-}
 
 address {
     margin: 0 0 24px
@@ -1463,7 +1435,7 @@ pre {
     padding: 24px
 }
 
-code,
+
 kbd,
 tt,
 var {
@@ -1739,7 +1711,7 @@ html {
     float: left
 }
 
-blockquote:before,
+
 #menu-close:before,
 .comments-link a:before,
 .byline a:before,
@@ -1901,44 +1873,6 @@ i {
     font-style: italic
 }
 
-blockquote {
-    font-style: italic;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 26px;
-    padding-left: 51px;
-    position: relative
-}
-
-blockquote:before {
-    content: "\f106";
-    display: block;
-    font-size: 32px;
-    line-height: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg)
-}
-
-blockquote blockquote {
-    font-size: inherit
-}
-
-blockquote cite {
-    display: block;
-    font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
-    margin: 12.8px 0;
-    text-align: left;
-    width: 100%
-}
 
 button,
 input[type="button"],
@@ -2058,7 +1992,7 @@ pre {
     max-width: 100%
 }
 
-code,
+
 kbd,
 tt,
 var {
@@ -3184,16 +3118,7 @@ div#respond,
 }
 
 .form-allowed-tags,
-.form-allowed-tags code {
-    color: #777;
-    font-size: .8125em;
-    line-height: 1.96923em
-}
 
-.form-allowed-tags code {
-    font-size: .8125em;
-    line-height: 1.96923em
-}
 
 .no-comments {
     color: #777;
@@ -3439,10 +3364,7 @@ div#respond,
 }
 
 @media screen and (min-width:80em) {
-    blockquote {
-        font-size: 24px;
-        padding-left: 51px
-    }
+  
     h1 {
         font-size: 42px;
         font-weight: 500;
