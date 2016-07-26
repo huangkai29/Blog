@@ -84,6 +84,9 @@ def index(*, page='1'):
         blogs = []
     else:
         blogs = yield from Blog.findAll(orderBy='created_at desc', limit=(page.offset, page.limit))
+        # 把摘要用markdown格式化
+        for a in blogs:
+            a.marksummary=markdown2.markdown(a.summary)
     return {
         '__template__': 'blogs.html',
         'page': page,
@@ -93,6 +96,7 @@ def index(*, page='1'):
 @get('/blog/{id}')
 def get_blog(id):
     blog = yield from Blog.find(id)
+    #每访问一次加一个文章访问量
     blog.visit=blog.visit+1
     yield from blog.update()
 

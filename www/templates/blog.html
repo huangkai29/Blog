@@ -1,23 +1,19 @@
-{% extends '__index__.html' %}
-
-{% block title %}{{ blog.name }}{% endblock %}
-
-{% block beforehead %}
-
+{% extends '__index__.html' %} {% block title %}{{ blog.name }}{% endblock %} {% block beforehead %}
 <script>
-
 var comment_url = '/api/blogs/{{ blog.id }}/comments';
 
-$(function () {
+$(function() {
     var $form = $('#form-comment');
-    $form.submit(function (e) {
+    $form.submit(function(e) {
         e.preventDefault();
         $form.showFormError('');
         var content = $form.find('textarea').val().trim();
-        if (content==='') {
+        if (content === '') {
             return $form.showFormError('请输入评论内容！');
         }
-        $form.postJSON(comment_url, { content: content }, function (err, result) {
+        $form.postJSON(comment_url, {
+            content: content
+        }, function(err, result) {
             if (err) {
                 return $form.showFormError(err);
             }
@@ -26,90 +22,61 @@ $(function () {
     });
 });
 </script>
-
-{% endblock %}
-
-{% block content %}
-
-    <article id="post-8326" class="post-8326 post type-post status-publish format-standard hentry category-ios category-iphone">
-                        <header class="entry-header">
-                        <h1 class="entry-title">{{ blog.name }}</h1></header>
-                        <h6 class="entry-title"> 发表于{{ blog.created_at|datetime }} | 阅读：{{ blog.visit }} </h6></header>
-                                               
-            
-            
-            <div class="entry-content"><p>{{ blog.html_content|safe }}</p></div>
-        </article>
-
-        
-
+{% endblock %} {% block content %}
+<article id="post-8326" class="post-8326 post type-post status-publish format-standard hentry category-ios category-iphone">
+    <header class="entry-header">
+        <h1 class="entry-title">{{ blog.name }}</h1></header>
+    <h6 class="entry-title"> 发表于{{ blog.created_at|datetime }} | 阅读：{{ blog.visit }} </h6></header>
+    <div class="entry-content">
+        <p>{{ blog.html_content|safe }}</p>
+    </div>
+</article>
 <div class="entry-content">
-
-
-        <h3>最新评论</h3>
-
-        <ul class="uk-comment-list">
+    <h3>最新评论</h3>
+    <ul class="uk-comment-list">
         <ol class="comment-list">
             {% for comment in comments %}
             <li>
                 <li class="comment even thread-even depth-1 parent">
-                                <article class="comment-body">
-                                    <footer class="comment-meta">
-                                        <div class="comment-author vcard">
-                                        <img src="http://www.getuikit.net/docs/images/placeholder_avatar.svg"  class='avatar avatar-50 photo' height='50' width='50' /> 
-                                        {{ comment.user_name }} {% if comment.user_id==blog.user_id %}(作者){% endif %}
-                       </div>
-                        <div class="comment-metadata">
-                                            
-                                                {{ comment.created_at|datetime }}
-                                            
-                                        </div>
-                                    </footer>
-
-
-
-                        
-                    <div class="comment-content">
-                    {{ comment.html_content|safe }}
-                    </div>
-                    
-                </article>
-                
-            </li>
-
+                    <article class="comment-body">
+                        <footer class="comment-meta">
+                            <div class="comment-author vcard">
+                                <img src="http://www.getuikit.net/docs/images/placeholder_avatar.svg" class='avatar avatar-50 photo' height='50' width='50' /> {{ comment.user_name }} {% if comment.user_id==blog.user_id %}(作者){% endif %}
+                            </div>
+                            <div class="comment-metadata">
+                                {{ comment.created_at|datetime }}
+                            </div>
+                        </footer>
+                        <div class="comment-content">
+                            {{ comment.html_content|safe }}
+                        </div>
+                    </article>
+                </li>
         </ol>
-            {% else %}
-            <p>还没有人评论...</p>
-            {% endfor %}
-        </ul>
-
+        {% else %}
+        <p>还没有人评论...</p>
+        {% endfor %}
+    </ul>
     {% if __user__ %}
-        
-        <h3>发表评论</h3>
-
-        <article class="uk-comment">
-            <header class="uk-comment-header">
-                
-                <h4 class="uk-comment-title">{{ __user__.name }}</h4>
-            </header>
-            <div class="uk-comment-body">
-                <form id="form-comment" class="uk-form">
-                    <div class="uk-alert uk-alert-danger uk-hidden"></div>
-                    <div class="uk-form-row">
-                        <textarea rows="6" placeholder="说点什么吧" style="width:100%;resize:none;"></textarea>
-                    </div>
-                    <div class="uk-form-row">
-                        <button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-comment"></i> 发表评论</button>
-                    </div>
-                </form>
-            </div>
-        </article>
-
-        <hr class="uk-article-divider">
-    {% endif %}
-
-    </div>
-
+    <h3>发表评论</h3>
+    <article class="uk-comment">
+        <header class="uk-comment-header">
+            <h4 class="uk-comment-title">{{ __user__.name }}</h4>
+        </header>
+        <div class="uk-comment-body">
+            <form id="form-comment" class="uk-form">
+                <div class="uk-alert uk-alert-danger uk-hidden"></div>
+                <div class="uk-form-row">
+                    <textarea rows="6" placeholder="说点什么吧" style="width:100%;resize:none;"></textarea>
+                </div>
+                <div class="uk-form-row">
+                    <button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-comment"></i> 发表评论</button>
+                </div>
+            </form>
+        </div>
+    </article>
+    <hr class="uk-article-divider"> {% endif %}
+</div>
 <!-- 
     <div class="uk-width-medium-1-4">
         <div class="uk-panel uk-panel-box">
@@ -127,5 +94,4 @@ $(function () {
             </ul>
         </div>
     </div> -->
-
 {% endblock %}
