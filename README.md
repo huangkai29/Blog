@@ -1,4 +1,1 @@
-awesome-python3-webapp
-======================
-
-A python webapp tutorial.
+基于Python的个人Blog，修改自穆雪峰的Python教程
