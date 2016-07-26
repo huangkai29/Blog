@@ -34,8 +34,8 @@ $(function () {
     <article id="post-8326" class="post-8326 post type-post status-publish format-standard hentry category-ios category-iphone">
                         <header class="entry-header">
                         <h1 class="entry-title">{{ blog.name }}</h1></header>
-                        <h6 class="entry-title">发表于{{ blog.created_at|datetime }}</h6></header>
-                        
+                        <h6 class="entry-title"> 发表于{{ blog.created_at|datetime }} | 阅读：{{ blog.visit }} </h6></header>
+                                               
             
             
             <div class="entry-content"><p>{{ blog.html_content|safe }}</p></div>
